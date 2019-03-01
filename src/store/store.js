@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware, compose} from 'redux';
-import allReducers from "../reducers"
+import allReducers from "../reducers";
+import { fetchAllPosts } from '../actions/postsActions';
 import thunk from 'redux-thunk';
 
 
@@ -17,5 +18,6 @@ const enhancer = composeEnhancers(
   applyMiddleware(...middleware),
 );
 const store = createStore(allReducers, enhancer);
+store.dispatch(fetchAllPosts());
 
 export default store;

@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 
-export default function NewPost () {
+export default function NewPost (props) {
  
   const [postState, setPostState] = useState({
     title: '',
@@ -9,8 +9,6 @@ export default function NewPost () {
   });
 
   function handleInputChange (e) {
-    console.log(e.target.name)
-    console.log(postState)
     setPostState({
       ...postState,
       [e.target.name]: e.target.value
@@ -20,7 +18,7 @@ export default function NewPost () {
   function handleSubmit (e) {
     e.preventDefault();
     if (postState.title.trim() && postState.body.trim()) {
-      console.log(postState);
+      props.onAddPost(postState)
       handleReset();
     }
   };

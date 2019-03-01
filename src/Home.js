@@ -1,11 +1,12 @@
 import React from 'react';
 import CreatePost from './containers/CreatePost';
+import PostList from './containers/PostList';
 
 const stylesApp = {
   marginTop: 40
 };
 
-function App(props) {
+function App() {
   return (
     <div className="container">
       <div className="row" style={ stylesApp }> 
@@ -13,7 +14,7 @@ function App(props) {
           <CreatePost />
         </div>
         <div className="col-md-6">
-          Display Post
+          <PostList />
         </div>
       </div>
     </div>
